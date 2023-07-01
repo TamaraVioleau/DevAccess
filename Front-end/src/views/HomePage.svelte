@@ -152,11 +152,11 @@
           justify-content: space-evenly;
           margin-inline: auto;
         }
-        @media screen and (orientation: landscape) {
-          min-height: calc(100dvh - 80px);
-          display: flex;
-          align-items: center;
-        }
+        // @media screen and (orientation: landscape) {
+        //   min-height: calc(100dvh - 80px);
+        //   display: flex;
+        //   align-items: center;
+        // }
         h2 {
           @extend %h1-mobile;
           @media screen and (min-width: 770px) {
