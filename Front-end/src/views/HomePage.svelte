@@ -1,17 +1,16 @@
 <script>
-  import Seperator from "../components/Seperator.svelte";
 </script>
 
 <main class="content-area">
   <div class="content-margin">
     <header class="content-header">
-      <img src="exploratrice.png" alt="" />
+      <img src="exploratrice.png" alt="" class="content-header__image" />
       <div class="content-header__div">
         <h1 class="content-header__title">
           L’accessibilité au coeur du développement web
+          <hr />
         </h1>
-        <hr />
-        <div>
+        <div class="content-header__text">
           <p class="content-header__description">
             Naviguez sur les mers tumultueuses de l’accessibilité numérique et
             du développement web. Hissez les voiles et direction les vastes
@@ -29,7 +28,10 @@
 
     <section class="content-section">
       <div>
-        <h2 class="content-section__title">Les chroniques les plus récentes</h2>
+        <h2 class="content-section__title">
+          Les chroniques les plus récentes
+          <hr />
+        </h2>
         <div class="content-articles">
           <article class="content-article">
             <h3 class="content-article__title">
@@ -84,88 +86,131 @@
     background-image: url(https://i.ibb.co/DpxkTsx/fond-3.png);
     background-position: center;
     background-repeat: no-repeat;
-    background-position: 0 0;
     background-attachment: fixed;
     background-size: cover;
     background-blend-mode: screen;
     .content-margin {
       margin-inline: 4rem;
+      @media screen and (min-width: 640px) {
+        margin-inline: 10rem;
+      }
       header {
         display: flex;
         flex-direction: column;
         margin-inline: auto;
         max-width: 1091px;
-        @media screen and (min-width: 770px) {
-          flex-direction: row-reverse;
-          padding-block: 2rem;
-          justify-content: space-evenly;
-        }
-        @media screen and (orientation: landscape) {
-          min-height: calc(100dvh - 80px);
-          display: flex;
-          align-items: center;
-        }
+
         img {
           margin-inline: auto;
           padding-block: 2rem;
           width: 290px;
           height: auto;
-
-          @media screen and (min-width: 770px) {
-            margin-inline: 0;
-            padding-block: 0;
-            width: auto;
-            height: 100%;
-            align-self: center;
-          }
         }
-        .content-header__div {
-          @media screen and (min-width: 770px) {
-            max-width: 740px;
-          }
 
+        .content-header__div {
           h1 {
             @extend %h1-mobile;
             @include h1-mobile;
-            @media screen and (min-width: 770px) {
-              @include h1-tablet;
-            }
-            @media screen and (min-width: 1024px) {
-              @include h1-desktop;
-            }
-            @media screen and (min-width: 1280px) {
-              @include h1-desktop-l;
+
+            hr {
+              display: none;
             }
           }
 
-          hr {
-            display: none;
-            @media screen and (min-width: 770px) {
-              display: block;
-              background-color: $color-yellow;
-              height: 3px;
-              margin-bottom: 2rem;
-              max-width: 365px;
-              opacity: 50%;
-            }
-          }
           p {
             @extend %text-mobile;
             @include text-mobile;
-            @media screen and (min-width: 770px) {
-              @include text-tablet;
-            }
-            @media screen and (min-width: 1024px) {
-              @include text-desktop;
-            }
-            @media screen and (min-width: 1280px) {
-              @include text-desktop-l;
-            }
+
             span {
               font-family: $quote-font;
               font-weight: bold;
             }
           }
+        }
+
+        @media screen and (min-width: 770px) {
+          display: grid;
+          grid-template-rows: auto;
+          grid-template-columns: 2fr 1fr;
+          padding-block: 2rem;
+          align-content: center;
+
+          .content-header__div {
+            display: contents;
+
+            h1 {
+              grid-row: 1;
+              grid-column: 1 / -1;
+              @include h1-tablet;
+
+              hr {
+                display: block;
+                background-color: $color-yellow;
+                height: 3px;
+                margin-block: 2rem;
+                max-width: 425px;
+              }
+            }
+
+            p {
+              @include text-tablet;
+            }
+
+            .content-header__description:nth-child(1) {
+              grid-row: 2;
+              grid-column: 1;
+            }
+
+            .content-header__description:nth-child(2) {
+              grid-row: 3;
+              grid-column: 1;
+            }
+          }
+
+          img {
+            grid-row: 2 / 2;
+            grid-column: 2;
+            margin-inline: 0;
+            padding-block: 0;
+            width: auto;
+            height: auto;
+            justify-self: center;
+          }
+        }
+
+        @media screen and (min-width: 1024px) {
+          .content-header__div {
+            h1 {
+              @include h1-desktop;
+            }
+            .content-header__text {
+              padding-inline: 5rem;
+              p {
+                @include text-desktop;
+              }
+            }
+          }
+        }
+
+        @media screen and (min-width: 1280px) {
+          max-width: 1200px;
+
+          .content-header__div {
+            h1 {
+              @include h1-desktop-l;
+              max-width: 1110px;
+            }
+            .content-header__text {
+              p {
+                @include text-desktop-l;
+              }
+            }
+          }
+        }
+
+        @media screen and (orientation: landscape) {
+          min-height: calc(100dvh - 80px);
+          align-items: center;
         }
       }
 
@@ -176,34 +221,50 @@
           justify-content: space-evenly;
           margin-inline: auto;
         }
-        // @media screen and (orientation: landscape) {
-        //   min-height: calc(100dvh - 80px);
-        //   display: flex;
-        //   align-items: center;
-        // }
+        @media screen and (min-width: 1280px) {
+          max-width: 1200px;
+        }
+
         h2 {
-          @extend %h1-mobile;
+          @extend %h2-mobile;
           margin-top: 5rem;
           @media screen and (min-width: 770px) {
-            @include h1-tablet;
+            @include h2-tablet;
           }
           @media screen and (min-width: 1024px) {
-            @include h1-desktop;
+            @include h2-desktop;
+            margin-bottom: 5rem;
           }
           @media screen and (min-width: 1280px) {
-            @include h1-desktop-l;
+            @include h2-desktop-l;
+          }
+          hr {
+            display: none;
+            @media screen and (min-width: 770px) {
+              display: block;
+              background-color: $color-yellow;
+              height: 3px;
+              margin-block: 2rem;
+              max-width: 425px;
+          }
           }
         }
         .content-articles {
           padding-block: 2rem;
           @media screen and (min-width: 640px) {
             display: flex;
+            flex-direction: column;
+            gap: 2rem;
+          }
+
+          @media screen and (min-width: 1024px) {
+            display: flex;
+            flex-direction: row;
             gap: 4rem;
           }
           article {
-            max-width: 560px;
             margin-bottom: 2rem;
-            background-color: #fffcf5;
+            background-color: #bfbfbf21;
             border-radius: 12px;
             padding: 2rem;
             box-shadow: 4px 5px 5px #c3c3c3;
@@ -214,7 +275,7 @@
             }
 
             h3 {
-              display: flex;
+              display: block;
               @extend %h3-mobile;
               @include h3-mobile;
               @media screen and (min-width: 770px) {
@@ -228,8 +289,13 @@
               }
               img {
                 width: auto;
-                height: 45px;
+                height: 30px;
                 margin-right: 2rem;
+                float: left;
+                position: relative;
+                @media screen and (min-width: 1024px) {
+height: 40px;;
+              }
               }
             }
 
@@ -249,7 +315,7 @@
 
             .date {
               display: flex;
-              width: 90%;
+              width: 50%;
               margin-inline: auto;
               margin-top: 2rem;
               @extend %date-mobile;
@@ -259,14 +325,16 @@
               }
               @media screen and (min-width: 1024px) {
                 @include date-desktop;
+                width: 75%;
               }
               @media screen and (min-width: 1280px) {
                 @include date-desktop-l;
               }
               &::before,
               &::after {
-                color: $text-color;
+                color: $color-yellow;
                 content: "";
+                opacity: 50%;
                 flex: 1;
                 border-bottom: solid 2px;
                 margin: auto 1rem;
