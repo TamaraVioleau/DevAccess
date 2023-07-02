@@ -10,6 +10,7 @@
         <h1 class="content-header__title">
           L’accessibilité au coeur du développement web
         </h1>
+        <hr />
         <div>
           <p class="content-header__description">
             Naviguez sur les mers tumultueuses de l’accessibilité numérique et
@@ -79,6 +80,14 @@
   main {
     min-height: 100vh;
     background-color: $bg-color;
+    background-color: #f4f8fb9e;
+    background-image: url(https://i.ibb.co/DpxkTsx/fond-3.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    background-attachment: fixed;
+    background-size: cover;
+    background-blend-mode: screen;
     .content-margin {
       margin-inline: 4rem;
       header {
@@ -107,7 +116,6 @@
             padding-block: 0;
             width: auto;
             height: 100%;
-            max-height: 295px;
             align-self: center;
           }
         }
@@ -125,8 +133,22 @@
             @media screen and (min-width: 1024px) {
               @include h1-desktop;
             }
+            @media screen and (min-width: 1280px) {
+              @include h1-desktop-l;
+            }
           }
 
+          hr {
+            display: none;
+            @media screen and (min-width: 770px) {
+              display: block;
+              background-color: $color-yellow;
+              height: 3px;
+              margin-bottom: 2rem;
+              max-width: 365px;
+              opacity: 50%;
+            }
+          }
           p {
             @extend %text-mobile;
             @include text-mobile;
@@ -136,7 +158,9 @@
             @media screen and (min-width: 1024px) {
               @include text-desktop;
             }
-
+            @media screen and (min-width: 1280px) {
+              @include text-desktop-l;
+            }
             span {
               font-family: $quote-font;
               font-weight: bold;
@@ -159,11 +183,15 @@
         // }
         h2 {
           @extend %h1-mobile;
+          margin-top: 5rem;
           @media screen and (min-width: 770px) {
             @include h1-tablet;
           }
           @media screen and (min-width: 1024px) {
             @include h1-desktop;
+          }
+          @media screen and (min-width: 1280px) {
+            @include h1-desktop-l;
           }
         }
         .content-articles {
@@ -179,6 +207,8 @@
             border-radius: 12px;
             padding: 2rem;
             box-shadow: 4px 5px 5px #c3c3c3;
+            border: 7px solid white;
+            background-image: linear-gradient(to top, #f0ebe6 0%, #f5f1ee 100%);
             &:first-child {
               margin-bottom: 2rem;
             }
@@ -192,6 +222,9 @@
               }
               @media screen and (min-width: 1024px) {
                 @include h3-desktop;
+              }
+              @media screen and (min-width: 1280px) {
+                @include h3-desktop-l;
               }
               img {
                 width: auto;
@@ -209,6 +242,9 @@
               @media screen and (min-width: 1024px) {
                 @include text-desktop;
               }
+              @media screen and (min-width: 1280px) {
+                @include text-desktop-l;
+              }
             }
 
             .date {
@@ -224,7 +260,9 @@
               @media screen and (min-width: 1024px) {
                 @include date-desktop;
               }
-
+              @media screen and (min-width: 1280px) {
+                @include date-desktop-l;
+              }
               &::before,
               &::after {
                 color: $text-color;
@@ -250,6 +288,9 @@
           }
           @media screen and (min-width: 1024px) {
             @include quote-desktop;
+          }
+          @media screen and (min-width: 1280px) {
+            @include quote-desktop-l;
           }
         }
       }

@@ -13,6 +13,10 @@
   font-size: 4rem;
 }
 
+@mixin h1-desktop-l {
+  font-size: 4.5rem;
+}
+
 @mixin h3-mobile {
   font-size: 2rem;
 }
@@ -23,6 +27,10 @@
 
 @mixin h3-desktop {
   font-size: 3.2rem;
+}
+
+@mixin h3-desktop-l {
+  font-size: 3.7rem;
 }
 
 //TEXT BODY
@@ -38,6 +46,10 @@
   font-size: 2rem;
 }
 
+@mixin text-desktop-l {
+  font-size: 2.5rem;
+}
+
 @mixin quote-mobile {
   font-size: 1.3rem;
 }
@@ -48,6 +60,10 @@
 
 @mixin quote-desktop {
   font-size: 1.9rem;
+}
+
+@mixin quote-desktop-l {
+  font-size: 2.4rem;
 }
 
 //DATE
@@ -61,4 +77,8 @@
 
 @mixin date-desktop {
   font-size: 1.6rem;
+}
+
+@mixin date-desktop-l {
+  font-size: 2.1rem;
 }
