@@ -1,9 +1,33 @@
 <script>
+  import Button from "./../components/Button.svelte";
+  import { onMount } from "svelte";
+  import NavBar from "../components/NavBar.svelte";
+
+  onMount(() => {
+    let currentSection = 0;
+    const sections = document.querySelectorAll(".scroll-section");
+    const navbarHeight = 80;
+
+    window.addEventListener("wheel", (e) => {
+      if (e.deltaY > 0) {
+        // Scroll vers le bas
+        currentSection = Math.min(currentSection + 1, sections.length - 1);
+      } else {
+        // Scroll vers le haut
+        currentSection = Math.max(currentSection - 1, 0);
+      }
+
+      window.scrollTo({
+        top: sections[currentSection].offsetTop - navbarHeight,
+        behavior: "smooth",
+      });
+    });
+  });
 </script>
 
 <main class="content-area">
   <div class="content-margin">
-    <header class="content-header">
+    <header class="content-header scroll-section">
       <img src="exploratrice.png" alt="" class="content-header__image" />
       <div class="content-header__div">
         <h1 class="content-header__title">
@@ -23,10 +47,15 @@
             périple commence maintenant !
           </p>
         </div>
+        <div class="button">
+          <a href="/" class="link" aria-label="lien vers la page..."
+            >En savoir plus</a
+          >
+        </div>
       </div>
     </header>
 
-    <section class="content-section">
+    <section class="content-section scroll-section">
       <div>
         <h2 class="content-section__title">
           Les chroniques les plus récentes
@@ -36,7 +65,6 @@
           <article class="content-article">
             <h3 class="content-article__title">
               <img src="/punaises.png" alt="" />
-
               Introduction à l’accessibilité
             </h3>
             <p class="content-article__p">
@@ -50,7 +78,6 @@
           <article class="content-article">
             <h3 class="content-article__title">
               <img src="/punaises.png" alt="" />
-
               Introduction à l’accessibilité
             </h3>
             <p class="content-article__p">
@@ -62,10 +89,15 @@
             </p>
           </article>
         </div>
+        <div class="button">
+          <a href="/" class="link" aria-label="lien vers la page..."
+            >Voir tous les articles</a
+          >
+        </div>
       </div>
     </section>
 
-    <section class="content-quote">
+    <section class="content-quote scroll-section">
       <p class="quote">
         « Naviguer sur le Web sans se soucier de l'accessibilité, c'est comme
         partir en expédition sans emporter de nourriture pour tout l'équipage. »
@@ -105,6 +137,9 @@
           padding-block: 2rem;
           width: 290px;
           height: auto;
+          @media screen and (max-width: 769px) {
+            margin-top: 80px;
+          }
         }
 
         .content-header__div {
@@ -125,6 +160,14 @@
               font-family: $quote-font;
               font-weight: bold;
             }
+          }
+        }
+
+        .button {
+          margin-block: 4rem;
+          text-align: center;
+          a {
+            @extend %button;
           }
         }
 
@@ -246,7 +289,7 @@
               height: 3px;
               margin-block: 2rem;
               max-width: 425px;
-          }
+            }
           }
         }
         .content-articles {
@@ -262,11 +305,11 @@
             flex-direction: row;
             gap: 4rem;
           }
-          article {
+          .content-article {
             margin-bottom: 2rem;
             background-color: #bfbfbf21;
             border-radius: 12px;
-            padding: 2rem;
+            padding: 4rem 4rem 2rem 4rem;
             box-shadow: 4px 5px 5px #c3c3c3;
             border: 7px solid white;
             background-image: linear-gradient(to top, #f0ebe6 0%, #f5f1ee 100%);
@@ -294,8 +337,8 @@
                 float: left;
                 position: relative;
                 @media screen and (min-width: 1024px) {
-height: 40px;;
-              }
+                  height: 40px;
+                }
               }
             }
 
@@ -315,13 +358,19 @@ height: 40px;;
 
             .date {
               display: flex;
-              width: 50%;
+              width: 90%;
+
               margin-inline: auto;
               margin-top: 2rem;
               @extend %date-mobile;
               @include date-mobile;
+              @media screen and (min-width: 640px) {
+                @include date-tablet;
+                width: 75%;
+              }
               @media screen and (min-width: 770px) {
                 @include date-tablet;
+                width: 65%;
               }
               @media screen and (min-width: 1024px) {
                 @include date-desktop;
@@ -342,9 +391,20 @@ height: 40px;;
             }
           }
         }
+        .button {
+          margin-block: 4rem;
+          text-align: center;
+          a {
+            @extend %button;
+          }
+        }
       }
 
       .content-quote {
+        @media screen and (min-width: 770px) {
+          top: 0;
+          margin-top: 80px;
+        }
         .quote {
           padding-block: 2rem;
           border: 2px solid #d9ae46;
@@ -362,6 +422,13 @@ height: 40px;;
           }
         }
       }
+    }
+  }
+  @media screen and (min-width: 770px) {
+    .scroll-section {
+      min-height: calc(100vh - 80px);
+      position: relative;
+      top: 80px;
     }
   }
 </style>
