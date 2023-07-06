@@ -48,7 +48,7 @@
           </p>
         </div>
         <div class="button">
-          <a href="" class="link" aria-label="lien vers la page..."
+          <a href="/" class="link" aria-label="lien vers la page..."
             >En savoir plus</a
           >
         </div>
@@ -90,7 +90,7 @@
           </article>
         </div>
         <div class="button">
-          <a href="" class="link" aria-label="lien vers la page..."
+          <a href="/" class="link" aria-label="lien vers la page..."
             >Voir tous les articles</a
           >
         </div>
@@ -168,6 +168,7 @@
           text-align: center;
           a {
             @extend %button;
+            transition: background-color 0.3s, color 0.3s;
           }
         }
 
@@ -259,6 +260,7 @@
 
       section {
         max-width: 1091px;
+        align-items: center;
         @media screen and (min-width: 770px) {
           display: flex;
           justify-content: space-evenly;
@@ -396,6 +398,7 @@
           text-align: center;
           a {
             @extend %button;
+            transition: background-color 0.3s, color 0.3s;
           }
         }
       }
