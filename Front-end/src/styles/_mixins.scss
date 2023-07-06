@@ -1,6 +1,7 @@
 @import "../styles/variables";
 
 //TITRES
+/*H1*/
 @mixin h1-mobile {
   font-size: 2.4rem;
 }
@@ -13,16 +14,42 @@
   font-size: 4rem;
 }
 
-@mixin h3-mobile {
-  font-size: 2rem;
+@mixin h1-desktop-l {
+  font-size: 5.8rem;
 }
 
-@mixin h3-tablet {
+/*H2*/
+@mixin h2-mobile {
+  font-size: 2.2rem;
+}
+
+@mixin h2-tablet {
   font-size: 2.4rem;
 }
 
-@mixin h3-desktop {
+@mixin h2-desktop {
   font-size: 3.2rem;
+}
+
+@mixin h2-desktop-l {
+  font-size: 4.8rem;
+}
+
+/*H3*/
+@mixin h3-mobile {
+  font-size: 1.85rem;
+}
+
+@mixin h3-tablet {
+  font-size: 2rem;
+}
+
+@mixin h3-desktop {
+  font-size: 2.5rem;
+}
+
+@mixin h3-desktop-l {
+  font-size: 3rem;
 }
 
 //TEXT BODY
@@ -38,6 +65,10 @@
   font-size: 2rem;
 }
 
+@mixin text-desktop-l {
+  font-size: 2.5rem;
+}
+
 @mixin quote-mobile {
   font-size: 1.3rem;
 }
@@ -48,6 +79,10 @@
 
 @mixin quote-desktop {
   font-size: 1.9rem;
+}
+
+@mixin quote-desktop-l {
+  font-size: 2.4rem;
 }
 
 //DATE
@@ -61,4 +96,8 @@
 
 @mixin date-desktop {
   font-size: 1.6rem;
+}
+
+@mixin date-desktop-l {
+  font-size: 2.1rem;
 }
