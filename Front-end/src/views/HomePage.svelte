@@ -1,28 +1,26 @@
 <script>
-  import Button from "./../components/Button.svelte";
   import { onMount } from "svelte";
-  import NavBar from "../components/NavBar.svelte";
 
-  onMount(() => {
-    let currentSection = 0;
-    const sections = document.querySelectorAll(".scroll-section");
-    const navbarHeight = 80;
+  // onMount(() => {
+  //   let currentSection = 0;
+  //   const sections = document.querySelectorAll(".scroll-section");
+  //   const navbarHeight = 80;
 
-    window.addEventListener("wheel", (e) => {
-      if (e.deltaY > 0) {
-        // Scroll vers le bas
-        currentSection = Math.min(currentSection + 1, sections.length - 1);
-      } else {
-        // Scroll vers le haut
-        currentSection = Math.max(currentSection - 1, 0);
-      }
+  //   window.addEventListener("wheel", (e) => {
+  //     if (e.deltaY > 0) {
+  //       // Scroll vers le bas
+  //       currentSection = Math.min(currentSection + 1, sections.length - 1);
+  //     } else {
+  //       // Scroll vers le haut
+  //       currentSection = Math.max(currentSection - 1, 0);
+  //     }
 
-      window.scrollTo({
-        top: sections[currentSection].offsetTop - navbarHeight,
-        behavior: "smooth",
-      });
-    });
-  });
+  //     window.scrollTo({
+  //       top: sections[currentSection].offsetTop - navbarHeight,
+  //       behavior: "smooth",
+  //     });
+  //   });
+  // });
 </script>
 
 <main class="content-area">
@@ -65,7 +63,7 @@
           <article class="content-article">
             <h3 class="content-article__title">
               <img src="/punaises.png" alt="" />
-              Introduction à l’accessibilité
+              <a href="/">Introduction à l’accessibilité</a>
             </h3>
             <p class="content-article__p">
               "Embarquez dans l'exploration de l'accessibilité numérique: un
@@ -332,6 +330,11 @@
               @media screen and (min-width: 1280px) {
                 @include h3-desktop-l;
               }
+
+              a {
+                @extend %link;
+              }
+
               img {
                 width: auto;
                 height: 30px;
