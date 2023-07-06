@@ -48,7 +48,7 @@
           </p>
         </div>
         <div class="button">
-          <a href="/" class="link" aria-label="lien vers la page..."
+          <a href="" class="link" aria-label="lien vers la page..."
             >En savoir plus</a
           >
         </div>
@@ -90,7 +90,7 @@
           </article>
         </div>
         <div class="button">
-          <a href="/" class="link" aria-label="lien vers la page..."
+          <a href="" class="link" aria-label="lien vers la page..."
             >Voir tous les articles</a
           >
         </div>
