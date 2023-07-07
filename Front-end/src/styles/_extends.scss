@@ -1,5 +1,17 @@
 @import "../styles/variables";
 
+%main{
+  min-height: 100vh;
+  background-color: $bg-color;
+  background-color: #f4f8fb9e;
+  background-image: url(https://i.ibb.co/DpxkTsx/fond-3.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-blend-mode: screen;
+}
+
 //TITRES
 %h1-mobile {
   font-family: $title-font;

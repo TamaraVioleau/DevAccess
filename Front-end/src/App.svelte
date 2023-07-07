@@ -6,6 +6,7 @@
   import NavBar from "./components/NavBar.svelte";
   import Footer from "./components/Footer.svelte";
   import BlogArticle from "./components/BlogArticle.svelte";
+  import About from "./views/About.svelte";
 
   const routes ={
     "/": HomePage,
@@ -15,5 +16,6 @@
 
 <NavBar/> 
  <!-- <BlogArticle/> -->
-<HomePage/> 
+ <About/>
+<!-- <HomePage/> -->
 <Footer/>

@@ -110,15 +110,7 @@
   @import "../styles/variables";
 
   main {
-    min-height: 100vh;
-    background-color: $bg-color;
-    background-color: #f4f8fb9e;
-    background-image: url(https://i.ibb.co/DpxkTsx/fond-3.png);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-    background-blend-mode: screen;
+@extend %main;
     .content-margin {
       margin-inline: 4rem;
       @media screen and (min-width: 640px) {
@@ -136,7 +128,6 @@
           width: 290px;
           height: auto;
           @media screen and (max-width: 769px) {
-            margin-top: 80px;
           }
         }
 
@@ -210,7 +201,7 @@
           }
 
           img {
-            grid-row: 2 / 2;
+            grid-row: 1 / 4;
             grid-column: 2;
             margin-inline: 0;
             padding-block: 0;
@@ -256,7 +247,7 @@
         }
       }
 
-      section {
+      .content-section {
         max-width: 1091px;
         align-items: center;
         @media screen and (min-width: 770px) {
@@ -267,6 +258,12 @@
         @media screen and (min-width: 1280px) {
           max-width: 1200px;
         }
+
+        @media screen and (orientation: landscape) {
+          min-height: calc(100dvh - 80px);
+          align-items: center;
+        }
+      
 
         h2 {
           @extend %h2-mobile;
@@ -408,9 +405,14 @@
 
       .content-quote {
         @media screen and (min-width: 770px) {
-          top: 0;
-          margin-top: 80px;
+        }          
+        
+        @media screen and (orientation: landscape) {
+          min-height: calc(100dvh - 80px);
+          align-items: center;
+          display: flex;
         }
+        
         .quote {
           padding-block: 2rem;
           border: 2px solid #d9ae46;
@@ -430,11 +432,11 @@
       }
     }
   }
-  @media screen and (min-width: 770px) {
-    .scroll-section {
-      min-height: calc(100vh - 80px);
-      position: relative;
-      top: 80px;
-    }
-  }
+  // @media screen and (min-width: 770px) {
+  //   .scroll-section {
+  //     min-height: calc(100vh);
+  //     position: relative;
+  //     top: 80px;
+  //   }
+ //}
 </style>
