@@ -167,9 +167,16 @@
           h1 {
             @extend %h1-mobile;
             @include h1-mobile;
+            text-align: center;
 
             hr {
-              display: none;
+              display: block;
+                background-color: $color-yellow;
+                height: 3px;
+                margin-block: 2rem;
+                max-width: 425px;
+                margin-inline: auto;
+                width: 50%;
             }
           }
 
@@ -207,9 +214,6 @@
         }
 
         @media screen and (min-width: 770px) {
-          display: grid;
-          grid-template-rows: auto;
-          grid-template-columns: 2fr 1fr;
           padding-block: 2rem;
           align-content: center;
 
@@ -227,6 +231,8 @@
                 height: 3px;
                 margin-block: 2rem;
                 max-width: 425px;
+                margin-inline: auto;
+                width: 75%;
               }
             }
             h2 {
@@ -235,22 +241,9 @@
             p {
               @include text-tablet;
             }
-
-            .content-header__description:nth-child(1) {
-              grid-row: 2;
-              grid-column: 1;
-            }
-
-            .content-header__description:nth-child(2) {
-              grid-row: 3;
-              grid-column: 1;
-            }
           }
 
           img {
-            grid-row: 1 / 4;
-            grid-column: 2;
-            margin-inline: 0;
             padding-block: 0;
             width: auto;
             height: auto;
@@ -287,7 +280,6 @@
               p {
                 @include text-desktop-l;
               }
-
             }
           }
         }

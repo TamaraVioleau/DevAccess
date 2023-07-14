@@ -167,6 +167,7 @@
           grid-template-columns: 2fr 1fr;
           padding-block: 2rem;
           align-content: center;
+          align-items: center;
 
           .content-header__div {
             display: contents;
